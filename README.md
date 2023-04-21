@@ -1,1 +1,1 @@
-# This is a Test Automation Framework designed to test Dashboards on ReportPortal.
+# This is a Test Automation Framework.
