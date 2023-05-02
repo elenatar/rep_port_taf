@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Driver {
+    private Driver() {
+    }
     private static WebDriver webDriver;
     public static WebDriver getWebDriver(){
         if(webDriver == null){
@@ -13,7 +15,6 @@ public class Driver {
         return webDriver;
     }
     private static void setWebDriver(WebDriver driver){
-
         webDriver = driver;
     }
     private static void loadDriver(){
@@ -26,7 +27,7 @@ public class Driver {
         if(webDriver != null){
             getWebDriver().quit();
             setWebDriver(null);
-            WebDriverRunner.setWebDriver(null);
+            WebDriverRunner.closeWebDriver();
         }
     }
 }
