@@ -1,7 +1,6 @@
 package com.taf.business.pages;
 
 import com.taf.core.ConfigManager;
-import com.taf.core.dto.ConfigDTO;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -13,10 +12,8 @@ public class LoginPage {
     private static final String SUBMIT_BUTTON = "//button[@type='submit']";
 
     public void fillLoginForm() {
-        ConfigDTO config = ConfigManager.getInstance().getConfigDTO();
-        $x(LOGIN_FIELD).shouldBe(visible, enabled).val(config.getLogin());
-        $x(PASSWORD_FIELD).shouldBe(visible, enabled).val(config.getPassword());
+        $x(LOGIN_FIELD).shouldBe(visible, enabled).val(ConfigManager.getLogin());
+        $x(PASSWORD_FIELD).shouldBe(visible, enabled).val(ConfigManager.getPassword());
         $x(SUBMIT_BUTTON).shouldBe(visible, enabled).click();
     }
-
 }

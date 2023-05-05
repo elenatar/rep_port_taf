@@ -10,9 +10,8 @@ public class HomePage {
     private static final String PROJECT_NAME = "//div[@class='projectSelector__project-selector--FXbsR projectSelector__shown--YcXp5']//span[contains(@title, '%s')]";
     private static final String DASHBOARD_WIDGET = "//div[@class = 'projectSelector__project-selector--FXbsR']";
 
-
     public void chooseProjectName(){
-        String userLogin = (ConfigManager.getInstance().getConfigDTO().getLogin()).toLowerCase();
+        String userLogin = ConfigManager.getLogin().toLowerCase();
         $x(PROJECT_NAME.formatted(userLogin)).shouldBe(visible).click();
     }
 

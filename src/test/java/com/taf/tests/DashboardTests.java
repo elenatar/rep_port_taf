@@ -12,10 +12,11 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static com.codeborne.selenide.Selenide.page;
 
 @Execution(ExecutionMode.CONCURRENT)
-    class DashboardTests extends BaseTest {
-    LoginPage loginPage = page(LoginPage.class);
-    DashboardsPage dashboardsPage = page(DashboardsPage.class);
-    HomePage homePage = page(HomePage.class);
+class DashboardTests extends BaseTest {
+
+    private final LoginPage loginPage = page(LoginPage.class);
+    private final DashboardsPage dashboardsPage = page(DashboardsPage.class);
+    private final HomePage homePage = page(HomePage.class);
 
     @Test
     void checkThatDashboardListHasItems() {
@@ -27,7 +28,7 @@ import static com.codeborne.selenide.Selenide.page;
 
     @ParameterizedTest
     @ValueSource(strings = {"DASHBOARD NAME", "DESCRIPTION", "OWNER", "SHARED", "EDIT", "DELETE"})
-    void checkDashboardColumnHeadersText(String columnHeaderText) {
+    void checkDashboardColumnHeadersText(final String columnHeaderText) {
         loginPage.fillLoginForm();
         homePage.clickProjectWidget();
         homePage.chooseProjectName();
@@ -37,7 +38,7 @@ import static com.codeborne.selenide.Selenide.page;
 
     @ParameterizedTest
     @ValueSource(strings = {"DEMO DASHBOARD", "TEST DASHBOARD"})
-    void checkDashboardItemNames(String dashboardName) {
+    void checkDashboardItemNames(final String dashboardName) {
         loginPage.fillLoginForm();
         homePage.clickProjectWidget();
         homePage.chooseProjectName();
@@ -47,7 +48,7 @@ import static com.codeborne.selenide.Selenide.page;
 
     @ParameterizedTest
     @ValueSource(strings = {"Dashboard for demo", "Dashboard for test"})
-    void checkDashboardItemDescriptions(String dashboardDescription) {
+    void checkDashboardItemDescriptions(final String dashboardDescription) {
         loginPage.fillLoginForm();
         homePage.clickProjectWidget();
         homePage.chooseProjectName();
@@ -57,7 +58,7 @@ import static com.codeborne.selenide.Selenide.page;
 
     @ParameterizedTest
     @ValueSource(strings = {"rptestuser"})
-    void checkDashboardItemOwner(String dashboardOwner) {
+    void checkDashboardItemOwner(final String dashboardOwner) {
         loginPage.fillLoginForm();
         homePage.clickProjectWidget();
         homePage.chooseProjectName();
