@@ -1,12 +1,12 @@
-package com.taf.tests;
+package com.taf.tests.steps;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.taf.core.ConfigManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import io.cucumber.java.After;
+import io.cucumber.java.BeforeAll;
 
-class BaseTest {
+public class CucumberHooks {
 
     @BeforeAll
     public static void setUp() {
@@ -14,7 +14,7 @@ class BaseTest {
         Configuration.baseUrl = ConfigManager.getUrl();
     }
 
-    @AfterEach
+    @After
     public void tearDown() {
         Selenide.closeWindow();
     }
