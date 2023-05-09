@@ -11,9 +11,15 @@ public class LoginPage {
     private static final String PASSWORD_FIELD = "//input[@name='password']";
     private static final String SUBMIT_BUTTON = "//button[@type='submit']";
 
-    public void fillLoginForm() {
+    public void fillLoginField() {
         $x(LOGIN_FIELD).shouldBe(visible, enabled).val(ConfigManager.getLogin());
+    }
+
+    public void fillPasswordField() {
         $x(PASSWORD_FIELD).shouldBe(visible, enabled).val(ConfigManager.getPassword());
+    }
+
+    public void clickSubmitButton() {
         $x(SUBMIT_BUTTON).shouldBe(visible, enabled).click();
     }
 }
