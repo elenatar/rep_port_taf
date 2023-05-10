@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class DashboardDefinitionSteps {
 
-    DashboardsPage dashboardsPage = page(DashboardsPage.class);
-    WidgetsPage widgetsPage = page(WidgetsPage.class);
+    private DashboardsPage dashboardsPage = page(DashboardsPage.class);
+    private WidgetsPage widgetsPage = page(WidgetsPage.class);
 
     @Then("Dashboards page is opened")
     public void dashboardsPageIsOpened() {
