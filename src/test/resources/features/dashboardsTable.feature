@@ -57,7 +57,7 @@ Feature: Dashboards feature
   @ui
   Scenario: User is able to see dashboard owner on dashboards table
     Given Dashboards page is opened
-    And Click project widgetm
+    And Click project widget
     When Choose project name
     And Dashboards table should have items
     Then Dashboards table should have owner 'rptestuser'

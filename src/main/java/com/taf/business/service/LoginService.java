@@ -9,12 +9,8 @@ public class LoginService {
 
     private final LoginPage loginPage = page(LoginPage.class);
 
-    private void openLoginPage() {
-        open("/");
-    }
-
     public void loginWithUser() {
-        openLoginPage();
+        open("/");
         loginPage.fillLoginField();
         loginPage.fillPasswordField();
         loginPage.clickSubmitButton();
