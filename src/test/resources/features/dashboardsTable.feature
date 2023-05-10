@@ -5,12 +5,14 @@ Feature: Dashboards feature
   Background: : User is able to login to Report Portal
     Given User logins to Report Portal
 
+  @ui
   Scenario: User is able to see items on dashboards table
     Given Dashboards page is opened
     And Click project widget
     When Choose project name
     Then Dashboards table should have items
 
+  @ui
   Scenario Outline: User is able to see column headers on dashboards table
     Given Dashboards page is opened
     And Click project widget
@@ -26,6 +28,7 @@ Feature: Dashboards feature
       | EDIT           |
       | DELETE         |
 
+  @ui
   Scenario Outline: User is able to see dashboard names on dashboards table
     Given Dashboards page is opened
     And Click project widget
@@ -38,6 +41,7 @@ Feature: Dashboards feature
       | DEMO DASHBOARD |
       | TEST DASHBOARD |
 
+  @ui
   Scenario Outline: User is able to see dashboard descriptions on dashboards table
     Given Dashboards page is opened
     And Click project widget
@@ -50,9 +54,10 @@ Feature: Dashboards feature
       | Dashboard for demo |
       | Dashboard for test |
 
+  @ui
   Scenario: User is able to see dashboard owner on dashboards table
     Given Dashboards page is opened
-    And Click project widget
+    And Click project widgetm
     When Choose project name
     And Dashboards table should have items
     Then Dashboards table should have owner 'rptestuser'
