@@ -1,30 +1,17 @@
 package com.taf.tests.steps;
 
 import com.taf.business.pages.DashboardsPage;
-import com.taf.business.pages.WidgetsPage;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 import static com.codeborne.selenide.Selenide.page;
 
 public class DashboardDefinitionSteps {
 
-    private DashboardsPage dashboardsPage = page(DashboardsPage.class);
-    private WidgetsPage widgetsPage = page(WidgetsPage.class);
+    private final DashboardsPage dashboardsPage = page(DashboardsPage.class);
 
     @Then("Dashboards page is opened")
     public void dashboardsPageIsOpened() {
         dashboardsPage.dashboardPageShouldBeVisible();
-    }
-
-    @When("Click project widget")
-    public void clickProjectWidget() {
-        widgetsPage.clickProjectWidget();
-    }
-
-    @Then("Choose project name")
-    public void chooseProjectName() {
-        widgetsPage.chooseProjectName();
     }
 
     @Then("Dashboards table should have items")
