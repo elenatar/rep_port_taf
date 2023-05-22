@@ -9,12 +9,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class DashboardsPage {
     private static final String PAGE_HEADER = "//span[@title='All Dashboards']";
-    private static final String DASHBOARD_COLUMNS_NAME = "//span[@class='headerCell__title-short--3_s1A']";
+    private static final String DASHBOARD_COLUMNS_NAME = "//span[@class='headerCell__title-full--2CU9W']";
     private static final String DASHBOARD_ITEM_NAME = "//a[contains(@class, 'gridCell')]";
-    private static final String DASHBOARD_ITEM_DESCRIPTION =
-            "//div[@class='gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__description--2TbtF']";
-    private static final String DASHBOARD_ITEM_OWNER =
-            "//div[@class='gridCell__grid-cell--3e2mS gridCell__align-left--2beIG dashboardTable__owner--cR_59']";
+    private static final String DASHBOARD_ITEM_DESCRIPTION = "//div[contains(@class, 'description')]";
+    private static final String DASHBOARD_ITEM_OWNER = "//div[contains(@class, 'owner')]";
 
     public void dashboardPageShouldBeVisible() {
         $x(PAGE_HEADER).shouldBe(Condition.visible);

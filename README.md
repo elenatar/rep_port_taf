@@ -1,5 +1,7 @@
 # TAF for Report Portal Dashboards
 
-## To run tests and generate Allure report:
+# To run tests execute the following command:
+>mvn test
 
-* run `mvn clean test`
+# To generate allure report run the following command:
+>mvn allure:serve
