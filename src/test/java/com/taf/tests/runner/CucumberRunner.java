@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-report.html", "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"},
-        glue = {"com.taf.tests.steps"},
+        glue = {"com.taf.tests.steps", "com.taf.tests.hooks"},
         features = {"src/test/resources/features"},
-        tags = "@ui"
+
+        tags = "@api"
 )
 public class CucumberRunner {
 }

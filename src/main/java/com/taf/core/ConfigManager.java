@@ -2,16 +2,18 @@ package com.taf.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taf.business.exceptions.ProcessingException;
-import com.taf.core.dto.User;
+import com.taf.core.models.Admin;
+import com.taf.core.models.User;
 
 import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigManager {
 
-    private static final String CONFIG_PROPERTIES_FILE = "src/test/resources/config.properties";
+    private static final String USERS_PROPERTIES = "src/test/resources/users.properties";
     private static ConfigManager instance;
     private User user = null;
+    private User admin = null;
 
     private ConfigManager() {
         loadConfiguration();
@@ -29,18 +31,23 @@ public class ConfigManager {
         return user;
     }
 
+    public User getAdmin() {
+        return admin;
+    }
+
     private void loadConfiguration() {
-        try (FileInputStream fileInputStream = new FileInputStream(CONFIG_PROPERTIES_FILE)) {
+        try (FileInputStream fileInputStream = new FileInputStream(USERS_PROPERTIES)) {
             Properties prop = new Properties();
             prop.load(fileInputStream);
-            this.user = buildUserObject(prop);
+            this.user = buildUserObject(prop, User.class);
+            this.admin = buildUserObject(prop, Admin.class);
         } catch (Exception e) {
             throw new ProcessingException("Failed to load config file", e);
         }
     }
 
-    private User buildUserObject(Properties prop) {
+    private User buildUserObject(Properties prop, Class<? extends User> userClass) {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.convertValue(prop, User.class);
+        return mapper.convertValue(prop, userClass);
     }
 }

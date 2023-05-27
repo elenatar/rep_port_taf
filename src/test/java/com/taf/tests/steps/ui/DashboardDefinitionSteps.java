@@ -1,4 +1,4 @@
-package com.taf.tests.steps;
+package com.taf.tests.steps.ui;
 
 import com.taf.business.pages.DashboardsPage;
 import io.cucumber.java.en.Then;
