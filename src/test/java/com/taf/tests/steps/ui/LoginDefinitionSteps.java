@@ -1,6 +1,6 @@
-package com.taf.tests.steps;
+package com.taf.tests.steps.ui;
 
-import com.taf.business.service.LoginService;
+import com.taf.business.services.LoginService;
 import io.cucumber.java.en.Given;
 
 import static com.taf.core.ConfigManager.getConfig;
