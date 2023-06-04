@@ -44,7 +44,7 @@ public class VerificationApiDefinitionSteps extends BasicApiDefinitionSteps {
                 .as(CreateDashboardResponse.class);
         assertThat(createDashboardResponse.getId())
                 .isNotNull();
-        context.addVariable(DASHBOARD_ID, String.valueOf(createDashboardResponse.getId()));
+        context.setDashboardId(String.valueOf(createDashboardResponse.getId()));
     }
 
     @And("Response body contains the following dashboards with descriptions")

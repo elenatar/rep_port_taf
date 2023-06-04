@@ -2,7 +2,7 @@ package com.taf.business.pages;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
-import static com.taf.core.ConfigManager.getConfig;
+import static com.taf.core.UserConfigManager.getUserConfig;
 
 public class Sidebar {
 
@@ -11,7 +11,7 @@ public class Sidebar {
 
     public void chooseDashboard() {
         $x(PROJECT_SELECTOR).shouldBe(visible).click();
-        String userLogin = getConfig().getUser().getLogin().toLowerCase();
+        String userLogin = getUserConfig().getUser().getLogin().toLowerCase();
         $x(PROJECT_NAME.formatted(userLogin)).shouldBe(visible).click();
     }
 }

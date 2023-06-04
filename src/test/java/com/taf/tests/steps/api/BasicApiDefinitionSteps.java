@@ -5,7 +5,5 @@ import com.taf.business.api.ApiTestContextManager;
 
 abstract class BasicApiDefinitionSteps {
 
-    public static final String DASHBOARD_ID = "dashboardId";
-
     protected ApiTestContext context = ApiTestContextManager.getInstance().getContext();
 }

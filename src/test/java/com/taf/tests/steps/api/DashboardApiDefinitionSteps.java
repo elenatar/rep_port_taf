@@ -1,37 +1,60 @@
 package com.taf.tests.steps.api;
 
-import com.taf.business.api.Request;
 import com.taf.core.utils.JsonFileUtil;
 import com.taf.core.utils.ResourcesFilePathUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
-import io.restassured.http.Method;
 import io.restassured.response.ValidatableResponse;
 
 import java.util.Map;
 
 public class DashboardApiDefinitionSteps extends BasicApiDefinitionSteps {
 
-    @Given("User sends {} request to {}")
-    public void userSendsRequest(final Method method, final String endpoint) {
-        Request request = context.getRequest();
-        request.setMethod(method);
-        request.setRequestUri(endpoint);
-        ValidatableResponse response = context.getApiClient().sendRequest(request, context.getVariables());
+    @Given("User gets all dashboards")
+    public void userGetsAllDashboards() {
+        ValidatableResponse response = context.getApiClient().executeGetRequest();
+        context.setResponse(response);
+    }
+
+    @Given("User gets dashboards by type {}")
+    public void userGetsSharedDashboards(String dashboardType) {
+        ValidatableResponse response = context.getApiClient().executeGetRequest(dashboardType);
         context.setResponse(response);
     }
 
     @Given("User prepares request body {} with the following parameters")
     public void userPreparesRequestBody(String fileName, DataTable replaceParamsDataTable) {
-        Request request = context.getRequest();
         Map<String, String> replaceParams = replaceParamsDataTable.asMap(String.class, String.class);
         String filePath = ResourcesFilePathUtil.getJsonBodyFilePathByName(fileName);
         String body = JsonFileUtil.loadFileAsString(filePath, replaceParams);
-        request.setBody(body);
+        context.setRequestBody(body);
     }
 
-    @Given("User set dashboard id {int}")
-    public void userSetDashboardId(int dashBoardId) {
-        context.addVariable(DASHBOARD_ID, String.valueOf(dashBoardId));
+    @Given("User prepares empty request body")
+    public void userPreparesEmptyRequestBody() {
+        context.setRequestBody("");
+    }
+
+    @Given("User creates new dashboard")
+    public void userCreatesNewDashboard() {
+        ValidatableResponse response = context.getApiClient().executePostRequest(context.getRequestBody());
+        context.setResponse(response);
+    }
+
+    @Given("User update existing dashboard")
+    public void userUpdateDashboard() {
+        ValidatableResponse response = context.getApiClient().executePutRequest(context.getRequestBody(), context.getDashboardId());
+        context.setResponse(response);
+    }
+
+    @Given("User delete dashboard")
+    public void userDeleteDashboard() {
+        ValidatableResponse response = context.getApiClient().executeDeleteRequest(context.getDashboardId());
+        context.setResponse(response);
+    }
+
+    @Given("User set dashboard id {}")
+    public void userSetDashboardId(String dashBoardId) {
+        context.setDashboardId(dashBoardId);
     }
 }

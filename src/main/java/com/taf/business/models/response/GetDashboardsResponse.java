@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 public class GetDashboardsResponse {
-
     private List<DashboardDto> content;
     private PageDto page;
 }

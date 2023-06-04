@@ -8,20 +8,20 @@ import com.taf.core.models.User;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-public class ConfigManager {
+public class UserConfigManager {
 
     private static final String USERS_PROPERTIES = "src/test/resources/users.properties";
-    private static ConfigManager instance;
+    private static UserConfigManager instance;
     private User user = null;
     private User admin = null;
 
-    private ConfigManager() {
+    private UserConfigManager() {
         loadConfiguration();
     }
 
-    public static ConfigManager getConfig() {
+    public static UserConfigManager getUserConfig() {
         if (instance == null) {
-            instance = new ConfigManager();
+            instance = new UserConfigManager();
             instance.loadConfiguration();
         }
         return instance;

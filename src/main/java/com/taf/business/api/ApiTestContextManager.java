@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ApiTestContextManager {
 
     private static ApiTestContextManager instance;
-    private ThreadLocal<ApiTestContext> contextContainer = ThreadLocal.withInitial(() -> null);
+    private final ThreadLocal<ApiTestContext> contextContainer = ThreadLocal.withInitial(() -> null);
 
     public static ApiTestContextManager getInstance() {
         if (instance == null) {
