@@ -1,12 +1,12 @@
 package com.taf.tests.steps.api;
 
 import com.taf.business.models.dto.DashboardDto;
-import com.taf.business.models.response.CreateDashboardResponse;
 import com.taf.business.models.response.GetDashboardsResponse;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.restassured.response.ValidatableResponse;
+import org.hamcrest.Matchers;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VerificationApiDefinitionSteps extends BasicApiDefinitionSteps {
+
+    public static final String CREATE_RESPONSE_DASHBOARD_ID = "id";
 
     @Then("System returns {int} response status code")
     public void systemReturnsStatusCode(final int responseCode) {
@@ -39,12 +41,9 @@ public class VerificationApiDefinitionSteps extends BasicApiDefinitionSteps {
 
     @And("Response body contains dashboard id")
     public void responseBodyContainsDashboardId() {
-        final ValidatableResponse response = context.getResponse();
-        final CreateDashboardResponse createDashboardResponse = response.extract()
-                .as(CreateDashboardResponse.class);
-        assertThat(createDashboardResponse.getId())
-                .isNotNull();
-        context.setDashboardId(String.valueOf(createDashboardResponse.getId()));
+        context.getResponse().body(CREATE_RESPONSE_DASHBOARD_ID, Matchers.notNullValue());
+        context.setDashboardId(String.valueOf(context.getResponse().extract().jsonPath()
+                .getString(CREATE_RESPONSE_DASHBOARD_ID)));
     }
 
     @And("Response body contains the following dashboards with descriptions")

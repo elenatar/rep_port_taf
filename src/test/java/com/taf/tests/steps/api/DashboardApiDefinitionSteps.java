@@ -1,5 +1,7 @@
 package com.taf.tests.steps.api;
 
+import com.taf.business.api.ApiClient;
+import com.taf.business.services.DashboardApiService;
 import com.taf.core.utils.JsonFileUtil;
 import com.taf.core.utils.ResourcesFilePathUtil;
 import io.cucumber.datatable.DataTable;
@@ -10,15 +12,17 @@ import java.util.Map;
 
 public class DashboardApiDefinitionSteps extends BasicApiDefinitionSteps {
 
+    ApiClient apiClient = new DashboardApiService();
+
     @Given("User gets all dashboards")
     public void userGetsAllDashboards() {
-        ValidatableResponse response = context.getApiClient().executeGetRequest();
+        ValidatableResponse response = apiClient.executeGetRequest();
         context.setResponse(response);
     }
 
     @Given("User gets dashboards by type {}")
     public void userGetsSharedDashboards(String dashboardType) {
-        ValidatableResponse response = context.getApiClient().executeGetRequest(dashboardType);
+        ValidatableResponse response = apiClient.executeGetRequest(dashboardType);
         context.setResponse(response);
     }
 
@@ -37,19 +41,19 @@ public class DashboardApiDefinitionSteps extends BasicApiDefinitionSteps {
 
     @Given("User creates new dashboard")
     public void userCreatesNewDashboard() {
-        ValidatableResponse response = context.getApiClient().executePostRequest(context.getRequestBody());
+        ValidatableResponse response = apiClient.executePostRequest(context.getRequestBody());
         context.setResponse(response);
     }
 
     @Given("User update existing dashboard")
     public void userUpdateDashboard() {
-        ValidatableResponse response = context.getApiClient().executePutRequest(context.getRequestBody(), context.getDashboardId());
+        ValidatableResponse response = apiClient.executePutRequest(context.getRequestBody(), context.getDashboardId());
         context.setResponse(response);
     }
 
     @Given("User delete dashboard")
     public void userDeleteDashboard() {
-        ValidatableResponse response = context.getApiClient().executeDeleteRequest(context.getDashboardId());
+        ValidatableResponse response = apiClient.executeDeleteRequest(context.getDashboardId());
         context.setResponse(response);
     }
 
