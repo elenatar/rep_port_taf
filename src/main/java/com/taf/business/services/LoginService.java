@@ -1,6 +1,6 @@
 package com.taf.business.services;
 
-import com.taf.business.pages.LoginPage;
+import com.taf.business.pages.selenide.LoginPage;
 import com.taf.core.models.User;
 
 import static com.codeborne.selenide.Selenide.page;

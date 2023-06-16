@@ -1,4 +1,4 @@
-package com.taf.business.pages;
+package com.taf.business.pages.selenide;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;

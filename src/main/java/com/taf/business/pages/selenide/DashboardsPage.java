@@ -1,4 +1,4 @@
-package com.taf.business.pages;
+package com.taf.business.pages.selenide;
 
 import com.codeborne.selenide.Condition;
 

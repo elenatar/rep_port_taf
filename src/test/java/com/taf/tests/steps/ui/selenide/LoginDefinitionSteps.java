@@ -1,4 +1,4 @@
-package com.taf.tests.steps.ui;
+package com.taf.tests.steps.ui.selenide;
 
 import com.taf.business.services.LoginService;
 import io.cucumber.java.en.Given;
