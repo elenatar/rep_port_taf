@@ -1,5 +1,6 @@
 package com.taf.business.pages.selenium;
 
+import com.taf.business.driver.DriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class BasePage {
     WebDriver driver;
 
     public BasePage(WebDriver driver) {
-        this.driver = driver;
+        this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
     }
 
