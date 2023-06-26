@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class DashboardsPage {
     private static final String PAGE_HEADER = "//span[@title='All Dashboards']";
-    private static final String DASHBOARD_COLUMNS_NAME = "//span[@class='headerCell__title-full--2CU9W']";
+    private static final String DASHBOARD_COLUMNS_NAME = "//span[@class='headerCell__title-short--3_s1A']";
     private static final String DASHBOARD_ITEM_NAME = "//a[contains(@class, 'gridCell')]";
     private static final String DASHBOARD_ITEM_DESCRIPTION = "//div[contains(@class, 'description')]";
     private static final String DASHBOARD_ITEM_OWNER = "//div[contains(@class, 'owner')]";
