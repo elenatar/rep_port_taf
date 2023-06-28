@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 public class SidebarDefinitionSteps extends BaseDefinitionSteps {
 
     public Sidebar getSidebar() {
-        return new Sidebar(getDriver());
+        return new Sidebar();
     }
 
     @When("Choose project name")

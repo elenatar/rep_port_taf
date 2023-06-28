@@ -1,7 +1,7 @@
 package com.taf.business.pages.selenium;
 
+import com.taf.core.utils.JsExecutorUtil;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -25,10 +25,6 @@ public class DashboardsPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'react-resizable')]")
     private List<WebElement> resizeButtonsList;
 
-    public DashboardsPage(WebDriver driver) {
-        super(driver);
-    }
-
     public List<WebElement> getDashboardNamesList() {
         return dashboardNamesList;
     }
@@ -43,7 +39,7 @@ public class DashboardsPage extends BasePage {
     }
 
     public void clickDashboardName() {
-        clickOnElementUsingJs(demoDashboard);
+        JsExecutorUtil.clickOnElementUsingJs(demoDashboard);
     }
 
     public Dimension getWidgetSize(int widgetIndex) {
@@ -52,7 +48,7 @@ public class DashboardsPage extends BasePage {
 
     public void resizeWidget(int widgetIndex, int xOffset, int yOffset) {
         WebElement resizeButton = resizeButtonsList.get(widgetIndex);
-        scrollIntoView(resizeButton);
+        JsExecutorUtil.scrollIntoView(resizeButton);
         Actions actions = new Actions(driver);
         actions.moveToElement(resizeButton).perform();
         waitVisibilityOfElement(resizeButton);

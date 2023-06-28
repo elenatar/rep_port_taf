@@ -1,6 +1,5 @@
 package com.taf.business.pages.selenium;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,10 +13,6 @@ public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
 
     public void fillLoginField(String userLogin) {
         waitVisibilityOfElement(loginField);
