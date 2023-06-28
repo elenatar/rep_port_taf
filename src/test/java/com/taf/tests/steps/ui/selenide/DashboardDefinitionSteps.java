@@ -1,6 +1,6 @@
-package com.taf.tests.steps.ui;
+package com.taf.tests.steps.ui.selenide;
 
-import com.taf.business.pages.DashboardsPage;
+import com.taf.business.pages.selenide.DashboardsPage;
 import io.cucumber.java.en.Then;
 
 import static com.codeborne.selenide.Selenide.page;

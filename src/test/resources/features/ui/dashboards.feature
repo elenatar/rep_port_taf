@@ -5,13 +5,13 @@ Feature: Dashboards feature
   Background: User is able to login to Report Portal
     Given User logins to Report Portal
 
-  @ui
+  @ui @selenide
   Scenario: User is able to see items on dashboards table
     Given Dashboards page is opened
     When Choose dashboard
     Then Dashboards table should have items
 
-  @ui
+  @ui @selenide
   Scenario Outline: User is able to see column headers on dashboards table
     Given Dashboards page is opened
     When Choose dashboard
@@ -26,7 +26,7 @@ Feature: Dashboards feature
       | EDIT           |
       | DELETE         |
 
-  @ui
+  @ui @selenide
   Scenario Outline: User is able to see dashboard names on dashboards table
     Given Dashboards page is opened
     When Choose dashboard
@@ -38,7 +38,7 @@ Feature: Dashboards feature
       | DEMO DASHBOARD |
       | TEST DASHBOARD |
 
-  @ui
+  @ui @selenide
   Scenario Outline: User is able to see dashboard descriptions on dashboards table
     Given Dashboards page is opened
     When Choose dashboard
@@ -50,7 +50,7 @@ Feature: Dashboards feature
       | Dashboard for demo |
       | Dashboard for test |
 
-  @ui
+  @ui @selenide
   Scenario: User is able to see dashboard owner on dashboards table
     Given Dashboards page is opened
     When Choose dashboard

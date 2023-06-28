@@ -6,14 +6,14 @@ import io.cucumber.java.Before;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class UICucumberHooks {
+public class UISelenideCucumberHooks {
 
-    @Before("@ui")
+    @Before("@selenide")
     public void openBaseUrl() {
         open("/ui/#login");
     }
 
-    @After("@ui")
+    @After("@selenide")
     public void tearDown() {
         Selenide.closeWindow();
     }
