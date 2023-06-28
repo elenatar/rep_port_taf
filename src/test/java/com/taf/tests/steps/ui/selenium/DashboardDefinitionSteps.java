@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class DashboardDefinitionSteps extends BaseDefinitionSteps {
 
     private DashboardsPage getDashboardPage() {
-        return new DashboardsPage(getDriver());
+        return new DashboardsPage();
     }
 
     @Given("Dashboards page is displayed")

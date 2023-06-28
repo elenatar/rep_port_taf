@@ -8,7 +8,7 @@ import static com.taf.core.UserConfigManager.getUserConfig;
 public class LoginDefinitionSteps extends BaseDefinitionSteps {
 
     public LoginPage getLoginPage() {
-        return new LoginPage(getDriver());
+        return new LoginPage();
     }
 
     @Given("User logins to Report Portal with a member user")
